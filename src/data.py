@@ -128,6 +128,12 @@ def shape_element(element):
                         node["address"][addr_key] = tag_val
                 elif lower_colon.match(tag_key):
                     node[tag_key] = tag_val
+        for tag in element.iter("nd"):
+            if not "node_refs" in node.keys():
+                node["node_refs"] = []
+            node_refs = node["node_refs"]
+            node_refs.append(tag.attrib["ref"])
+            node["node_refs"] = node_refs
 
         return node
     else:
@@ -155,7 +161,6 @@ def test():
     # additional spaces to the output, making it significantly larger.
     data = process_map('../test-data/data-example.osm', True)
     # pprint.pprint(data)
-    pprint.pprint(data[0])
 
     assert data[0] == {
                         "id": "261114295",
