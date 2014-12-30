@@ -3,6 +3,7 @@
 import xml.etree.ElementTree as ET
 import pprint
 import re
+import sys
 """
 Your task is to explore the data a bit more.
 The first task is a fun one - find out how many unique users
@@ -26,13 +27,13 @@ def process_map(filename):
     return users
 
 
-def test():
-
-    users = process_map('../test-data/users-example.osm')
+def run(filename):
+    users = process_map(filename)
     pprint.pprint(users)
-    assert len(users) == 4
-
 
 
 if __name__ == "__main__":
-    test()
+    if not len(sys.argv) == 2:
+        print "Usage: python maps/users.py input-file"
+    else:
+        run(sys.argv[1])
