@@ -23,3 +23,16 @@ maps.tags.process_map Results
 ------------------
     $ python maps/tags.py './data/chaska-map.osm'
     {'lower': 40146, 'lower_colon': 44211, 'other': 2060, 'problemchars': 0}
+
+maps.users.process_map Results
+------------------------------
+177 users have edited this map.  Most are not included in the results below.
+
+        $ python maps/users.py './data/chaska-map.osm'
+        set(['42429',
+             '503Greg',
+             'AJ_LA',
+                .
+                .
+                .
+             'zdavkeos'])
