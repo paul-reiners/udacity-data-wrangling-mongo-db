@@ -9,6 +9,7 @@ and number of times this tag can be encountered in the map as value.
 """
 import xml.etree.ElementTree as ET
 import pprint
+import sys
 
 def count_tags(filename):
         tags = {}
@@ -19,20 +20,12 @@ def count_tags(filename):
             tags[tag] = tags[tag] + 1
         return tags
 
-def test():
-
-    tags = count_tags('../test-data/mapparser-example.osm')
+def run(file_name):
+    tags = count_tags(file_name)
     pprint.pprint(tags)
-    assert tags == {'bounds': 1,
-                     'member': 3,
-                     'nd': 4,
-                     'node': 20,
-                     'osm': 1,
-                     'relation': 1,
-                     'tag': 7,
-                     'way': 1}
-
-
 
 if __name__ == "__main__":
-    test()
+    if not len(sys.argv) == 2:
+        print "Usage: python mapparser.py input-file"
+    else:
+        run(sys.argv[1])
