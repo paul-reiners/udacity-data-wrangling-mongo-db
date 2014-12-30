@@ -1,1 +1,3 @@
 test-data/data-example.osm.json
+*.pyc
+*~
