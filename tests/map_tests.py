@@ -4,6 +4,7 @@ import maps.mapparser
 import maps.tags
 import maps.users
 import maps.audit
+import maps.data
 
 OSMFILE = "./test-data/audit-example.osm"
 
@@ -42,3 +43,29 @@ def test_audit_audit():
                 assert better_name == "West Lexington Street"
             if name == "Baldwin Rd.":
                 assert better_name == "Baldwin Road"
+
+def test_data_process_map():
+    data = maps.data.process_map('./test-data/data-example.osm', True)
+
+    assert data[0] == {
+                        "id": "261114295",
+                        "visible": "true",
+                        "type": "node",
+                        "pos": [
+                          41.9730791,
+                          -87.6866303
+                        ],
+                        "created": {
+                          "changeset": "11129782",
+                          "user": "bbmiller",
+                          "version": "7",
+                          "uid": "451048",
+                          "timestamp": "2012-03-28T18:31:23Z"
+                        }
+                      }
+    assert data[-1]["address"] == {
+                                    "street": "West Lexington St.",
+                                    "housenumber": "1412"
+                                      }
+    assert data[-1]["node_refs"] == [ "2199822281", "2199822390",  "2199822392", "2199822369",
+                                    "2199822370", "2199822284", "2199822281"]
