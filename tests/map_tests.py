@@ -7,12 +7,6 @@ import maps.audit
 
 OSMFILE = "./test-data/audit-example.osm"
 
-mapping = { "St": "Street",
-            "St.": "Street",
-            "Ave": "Avenue",
-            "Rd.": "Road"
-            }
-
 def test_mappparser_count_tags():
     tags = maps.mapparser.count_tags('./test-data/mapparser-example.osm')
     pprint.pprint(tags)
@@ -42,7 +36,7 @@ def test_audit_audit():
 
     for st_type, ways in st_types.iteritems():
         for name in ways:
-            better_name = maps.audit.update_name(name, mapping)
+            better_name = maps.audit.update_name(name, maps.audit.mapping)
             print name, "=>", better_name
             if name == "West Lexington St.":
                 assert better_name == "West Lexington Street"
