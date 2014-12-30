@@ -1,13 +1,7 @@
 from nose.tools import *
-import unittest
 import pprint
 import maps.mapparser
-
-def setup(self):
-    print "SETUP!"
-
-def teardown(self):
-    print "TEAR DOWN!"
+import maps.tags
 
 def test_count_tags():
     tags = maps.mapparser.count_tags('./test-data/mapparser-example.osm')
@@ -20,3 +14,8 @@ def test_count_tags():
             'relation': 1,
             'tag': 7,
             'way': 1} == tags
+
+def test_process_map():
+    keys = maps.tags.process_map('./test-data/tags-example.osm')
+    pprint.pprint(keys)
+    assert keys == {'lower': 5, 'lower_colon': 0, 'other': 2, 'problemchars': 0}
