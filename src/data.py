@@ -94,7 +94,6 @@ def shape_element(element):
     node = {}
     # you should process only 2 types of top level tags: "node" and "way"
     if element.tag == "node" or element.tag == "way" :
-        # YOUR CODE HERE
         for key in element.attrib.keys():
             val = element.attrib[key]
             node["type"] = element.tag
