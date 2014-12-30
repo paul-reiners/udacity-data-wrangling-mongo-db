@@ -3,6 +3,15 @@ import pprint
 import maps.mapparser
 import maps.tags
 import maps.users
+import maps.audit
+
+OSMFILE = "./test-data/audit-example.osm"
+
+mapping = { "St": "Street",
+            "St.": "Street",
+            "Ave": "Avenue",
+            "Rd.": "Road"
+            }
 
 def test_mappparser_count_tags():
     tags = maps.mapparser.count_tags('./test-data/mapparser-example.osm')
@@ -25,3 +34,17 @@ def test_users_process_map():
     users = maps.users.process_map('./test-data/users-example.osm')
     pprint.pprint(users)
     assert len(users) == 4
+
+def test_audit_audit():
+    st_types = maps.audit.audit(OSMFILE)
+    assert len(st_types) == 3
+    pprint.pprint(dict(st_types))
+
+    for st_type, ways in st_types.iteritems():
+        for name in ways:
+            better_name = maps.audit.update_name(name, mapping)
+            print name, "=>", better_name
+            if name == "West Lexington St.":
+                assert better_name == "West Lexington Street"
+            if name == "Baldwin Rd.":
+                assert better_name == "Baldwin Road"
