@@ -3,6 +3,8 @@ udacity-data-wrangling-mongo-db
 
 Udacity Data Wrangling with MongoDB course work
 
+For information on project structure, see [<i>Learn Python the Hard Way</i>](http://learnpythonthehardway.org/book/ex46.html).
+
 Map Parser Results
 ------------------
     $ python mapparser.py '../data/chaska-map.osm'
