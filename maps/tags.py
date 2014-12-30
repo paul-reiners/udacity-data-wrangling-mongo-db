@@ -3,6 +3,7 @@
 import xml.etree.ElementTree as ET
 import pprint
 import re
+import sys
 """
 Your task is to explore the data a bit more.
 Before you process the data and add it into MongoDB, you should
@@ -38,7 +39,6 @@ def key_type(element, keys):
     return keys
 
 
-
 def process_map(filename):
     keys = {"lower": 0, "lower_colon": 0, "problemchars": 0, "other": 0}
     for _, element in ET.iterparse(filename):
@@ -47,14 +47,13 @@ def process_map(filename):
     return keys
 
 
-
-def test():
-    # You can use another testfile 'map.osm' to look at your solution
-    # Note that the assertions will be incorrect then.
-    keys = process_map('../test-data/tags-example.osm')
+def run(filename):
+    keys = process_map(filename)
     pprint.pprint(keys)
-    assert keys == {'lower': 5, 'lower_colon': 0, 'other': 2, 'problemchars': 0}
 
 
 if __name__ == "__main__":
-    test()
+    if not len(sys.argv) == 2:
+        print "Usage: python maps/tags.py input-file"
+    else:
+        run(sys.argv[1])
