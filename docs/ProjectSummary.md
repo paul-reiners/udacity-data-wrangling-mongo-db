@@ -17,7 +17,7 @@ I chose this particular place because it is my neighbourhood, I know it well and
 
 *Is there a list  of  Web sites, books, forums, blog posts, github repositories etc that you referred to or used  in this  submission (Add N/A if you did not use  such resources)?*
 
-Use this place to list the citations.
+I used the documentation at http://docs.mongodb.org/ quite a bit.
 
 *Please carefully read the following statement and include it in your email:*
 
@@ -25,4 +25,4 @@ Use this place to list the citations.
 
 *Is there any other important information that you would want your project evaluator to know?*
 
-Use this space to communicate with your project evaluator. Is there anything you would like to communicate? Feedback or suggestions?
+No.
