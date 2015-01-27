@@ -11,38 +11,45 @@ This will generate the following output file:
 
     data/chaska-map.osm.json
 
+First, we start up MongoDB:
+
+    $ mongod --dbpath ~/data/db
+
+Next, we import the data:
+
+    $ mongoimport --db map --collection map --file ./data/chaska-map.osm.json
+
+Now start mongo:
+
+    $ mongo
+    > use map
+    switched to db map
+
+
 Size of the file
 ----------------
 The original OSM file is 50.4 MB.  The JSON file generated from the OSM file is 55.8 MB.
 
+Let's look at the size of the actual collection:
+
+    > db.map.dataSize()
+    71478400
+
+You can see that it's about 71 MB.
+
 Number of unique users
 ----------------------
-177 users have edited this map.  Most are not included in the results below.
-
-        $ python maps/users.py './data/chaska-map.osm'
-        set(['42429',
-             '503Greg',
-             'AJ_LA',
-                .
-                .
-                .
-             'zdavkeos'])
+212 users have edited this map.  
+             
+    > db.map.distinct("created.user").length
+    212
 
 Number of nodes and ways
 ------------------------
 The Chaska map contains 235,838 nodes and 21,050 ways:
 
-    $ python mapparser.py '../data/chaska-map.osm'
-    {'bounds': 1,
-     'member': 2957,
-     'meta': 1,
-     'nd': 263583,
-     'node': 235838,
-     'note': 1,
-     'osm': 1,
-     'relation': 93,
-     'tag': 86417,
-     'way': 21050}
-
-Number of chosen type of nodes, like cafes, shops, etc.
--------------------------------------------------------
+    > db.map.find( { type: "node" } ).length()
+    235838
+    
+    > db.map.find( { type: "way" } ).length()
+    21050
