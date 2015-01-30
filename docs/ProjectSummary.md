@@ -17,7 +17,7 @@ I chose this particular place because it is my neighbourhood, I know it well and
 
 *Is there a list  of  Web sites, books, forums, blog posts, github repositories etc that you referred to or used  in this  submission (Add N/A if you did not use  such resources)?*
 
-I used the documentation at http://docs.mongodb.org/ quite a bit.
+I used the documentation at http://docs.mongodb.org/ quite a bit.  For information on project structure, I used [<i>Learn Python the Hard Way</i>](http://learnpythonthehardway.org/book/ex46.html).
 
 *Please carefully read the following statement and include it in your email:*
 

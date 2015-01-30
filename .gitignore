@@ -2,3 +2,4 @@ test-data/data-example.osm.json
 *.pyc
 *~
 data/chaska-map.osm.json
+docs/ProjectReport.html
