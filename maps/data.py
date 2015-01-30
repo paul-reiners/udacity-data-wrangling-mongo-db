@@ -128,6 +128,8 @@ def shape_element(element):
                         node["address"][addr_key] = tag_val
                 elif lower_colon.match(tag_key):
                     node[tag_key] = tag_val
+                else:
+                    node[tag_key] = tag_val
         for tag in element.iter("nd"):
             if not "node_refs" in node.keys():
                 node["node_refs"] = []
@@ -159,7 +161,7 @@ def run(osm_file):
     # NOTE: if you are running this code on your computer, with a larger dataset,
     # call the process_map procedure with pretty=False. The pretty=True option adds
     # additional spaces to the output, making it significantly larger.
-    data = process_map(osm_file, False)
+    data = process_map(osm_file, True)
 
 if __name__ == "__main__":
     if not len(sys.argv) == 2:

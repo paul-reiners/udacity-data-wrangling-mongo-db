@@ -35,7 +35,6 @@ Now start mongo:
     > use map
     switched to db map
 
-
 ### Size of the file
 
 The original OSM file is 50.4 MB.  The JSON file generated from the OSM file is 55.8 MB.
