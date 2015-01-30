@@ -161,7 +161,7 @@ def run(osm_file):
     # NOTE: if you are running this code on your computer, with a larger dataset,
     # call the process_map procedure with pretty=False. The pretty=True option adds
     # additional spaces to the output, making it significantly larger.
-    data = process_map(osm_file, True)
+    data = process_map(osm_file, False)
 
 if __name__ == "__main__":
     if not len(sys.argv) == 2:

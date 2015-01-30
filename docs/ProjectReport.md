@@ -15,7 +15,9 @@ We provide a statistical overview of the Chaska, Minnesota dataset.
 
 To generate the .json file from the .osm file, run the following:
 
-    $ python maps/data.py './data/chaska-map.osm'
+    $ python maps/data.py data/chaska-map.osm
+    
+(Note that data.py will not work with Python 3 (because of a print statement); you must use Python 2.)
 
 This will generate the following output file:
 
@@ -37,14 +39,14 @@ Now start mongo:
 
 ### Size of the file
 
-The original OSM file is 50.4 MB.  The JSON file generated from the OSM file is 55.8 MB.
+The original OSM file is 49,223 KB.  The JSON file generated from the OSM file is 55,644 KB.
 
 Let's look at the size of the actual collection:
 
     > db.map.dataSize()
-    71478400
+    215819136
 
-You can see that it's about 71 MB.
+You can see that it's about 216,000 MB.
 
 ### Number of unique users
 
@@ -62,6 +64,20 @@ The Chaska map contains 235,838 nodes and 21,050 ways:
     
     > db.map.find( { type: "way" } ).length()
     21050
+    
+### number of chosen type of nodes
+
+There are five cafes in Chaska:
+
+    > db.map.find( { amenity: "cafe" } ).count()
+    5
+    
+There are 55 shops in Chaska:
+
+    > db.map.find( { shop: { $exists: true } } ).count()
+    55
+
+I think this number might be low indicating that the OpenStreetMap data is incomplete for Chaska.
 
 Other ideas about the datasets
 ------------------------------
