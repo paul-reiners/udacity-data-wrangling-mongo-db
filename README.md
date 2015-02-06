@@ -12,4 +12,4 @@ The following files are the most import:
 * [users.py](https://github.com/paul-reiners/udacity-data-wrangling-mongo-db/blob/master/maps/users.py)              [Exploring Users Exercise]
 * [audit.py](https://github.com/paul-reiners/udacity-data-wrangling-mongo-db/blob/master/maps/audit.py)               [Improving Street Names Exercise]
 * [data.py](https://github.com/paul-reiners/udacity-data-wrangling-mongo-db/blob/master/maps/data.py)                [Preparing for Database Exercise]
-* example.osm       [Small example part from the map that you used (around 1-10 MB of size)]
+* [example.osm](https://github.com/paul-reiners/udacity-data-wrangling-mongo-db/blob/master/data/example.osm)       [Small example part from the map that I used (around 7 MB of size)]
