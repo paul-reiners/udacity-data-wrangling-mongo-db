@@ -3,7 +3,7 @@ udacity-data-wrangling-mongo-db
 
 Udacity Data Wrangling with MongoDB course work.
 
-The following files are the most import:
+The following files are the most important:
 
 * [Project Summary](https://github.com/paul-reiners/udacity-data-wrangling-mongo-db/blob/master/docs/ProjectSummary.md)
 * [Project Report](https://github.com/paul-reiners/udacity-data-wrangling-mongo-db/blob/master/docs/ProjectReport.md)
