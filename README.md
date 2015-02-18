@@ -1,7 +1,7 @@
 udacity-data-wrangling-mongo-db
 ===============================
 
-Udacity Data Wrangling with MongoDB course work.
+Udacity Data Wrangling with MongoDB course work.  I chose the city of Chaska, Minnesota in Open Street Map and used data munging techniques, such as assessing the quality of the data for validity, accuracy, completeness, consistency and uniformity, to clean the OpenStreetMap data.
 
 The following files are the most important:
 
